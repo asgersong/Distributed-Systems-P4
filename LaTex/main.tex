@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{minted}
+\usepackage[shortlabels]{enumitem}
+
+% pakker for at lave bokse
+\usepackage{blindtext}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = lightgray %Colour of citations
+}
+
+\makeatletter
+\newcommand\xleftrightarrow[2][]{%
+  \ext@arrow9999{\longleftrightarrowfill@}{#1}{#2}}
+\newcommand\longleftrightarrowfill@{%
+  \arrowfill@\leftarrow\relbar\rightarrow}
+\makeatother
+
+\begin{document}
+\input{Titlepage.tex}
+\tableofcontents
+\section{Introduction}
+
+\section{Methods and Materials}
+
+\section{Experiments, Results and Discussion}
+  
+
+  \subsection{Discussion}
+
+\section{Conclusion and perspectives}
+    \subsection{Conclusion}
+    
+    \subsection{Lessons Learned}
+
+    \subsection{Future Work}
+
+\newpage
+    \bibliographystyle{IEEEtran} % We choose the "plain" reference style
+    \nocite{*}
+    \bibliography{P4} % Entries are in the refs.bib file
+\end{document}
