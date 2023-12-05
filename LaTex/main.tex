@@ -32,9 +32,38 @@
 \input{Titlepage.tex}
 \tableofcontents
 \section{Introduction}
+    In the expansive field of distributed systems, the current project embarks on an insightful journey to explore and elucidate the fundamental concepts of logical clock algorithms, specifically focusing on Lamport Timestamps and Vector Clocks. This project aims to design, implement, test, and compare these algorithms, emphasizing their ability to order events in a distributed system with accuracy and efficiency. 
+
+    The core challenge of this project lies in the intricate analysis and optimization of two pivotal logical clock algorithms - Lamport Timestamps and Vector Clocks. Our focus is twofold: firstly, to ensure the correctness of event ordering, and secondly, to optimize the overhead in terms of time, space, and message complexities. The journey encompasses a thorough process that begins with a detailed understanding of the algorithms, followed by a robust implementation in Python. The project progresses with rigorous testing and evaluation, comparing these algorithms against each other and benchmarking them against the state of the art.
+
+    Through meticulous research, development, and analytical scrutiny, this project endeavors to contribute a comprehensive understanding of these algorithms. It seeks to provide clear insights into their operational mechanics, effectiveness in distributed environments, and the potential areas where they can be applied or further developed.
+
 
 \section{Methods and Materials}
-  \subsection{Lamport Timestamp}
+\subsection{Lamport Timestamp}
+  The concept of Lamport Timestamps, introduced by Leslie Lamport\cite{Lamport:1978}, serves as a cornerstone in the realm of distributed systems for establishing a partial ordering of events. At the heart of this algorithm lies a simple yet powerful idea: using logical clocks — counters that are not tied to physical time — to sequence events across different processes in a distributed environment.
+
+  Lamport Timestamps operate on the principle that each process in a distributed system maintains its own logical clock. When an event occurs, be it a message send or receive, or an internal event, the clock is incremented. The elegance of this system is its relative simplicity and the minimal overhead it incurs, making it a foundational approach in the study of distributed systems.
+
+  \subsubsection{Happens-before}
+    To establish synchronization among logical clocks in distributed systems, Leslie Lamport introduced the fundamental concept of happens-before, a crucial relation in Lamport Timestamps. This relation, denoted by $a \rightarrow b$, defines a chronological order between two events, stating that event $a$ happens before event $b$. This relation is transitive, meaning that \(\forall a,b,c\) if $a \rightarrow b$ and $b \rightarrow c$, then $a \rightarrow c$. The happens-before relation is also irreflexive, meaning that \(\forall a\): $a \nrightarrow a$, and antisymmetric, meaning that \(\forall a,b\): $a \neq b$, if \(a \rightarrow b\) then $b \nrightarrow a$.
+
+    The happens-before relation is used to establish a partial ordering of events in a distributed system. The ordering is established by comparing the timestamps of two events. If $a \rightarrow b$, then $C(a) < C(b)$, where $C(a)$ denotes the timestamp of event $a$. However, it is important to note that the converse, if $C(a) < C(b)$, then $a \nrightarrow b$, is not necessarily true. This is because the happens-before relation is a partial ordering, meaning that it is not necessarily true that $a \rightarrow b$ or $b \rightarrow a$. When it is the cast that $a \nrightarrow b$ and $b \nrightarrow a$, the two events are said to be concurrent.
+
+  \subsubsection{Lamport Timestamp Algorithm}
+    Considering the happens-before relation, Lamport Timestamps can be defined as follows: \textit{The timestamp of an event is the maximum of its own timestamp and the timestamps of all events that happen-before it, plus one.} This definition can be expressed as the following equation:
+    \begin{equation}
+      C(e) = max(C(e), C(e')) + 1
+    \end{equation}
+    where $C(e)$ denotes the timestamp of event $e$, and $C(e')$ denotes the timestamp of the event that happens-before $e$. This equation is used to update the timestamp of an event when it occurs. The timestamp of an event is initialized to zero, and is incremented by one when an event occurs. The timestamp of an event is also included in messages sent between processes, and is used to update the timestamp of the receiving process.
+
+    Consider the following example, where three processes, $P_1$, $P_2$ and $P_3$, communicate with each other.
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.5\textwidth]{img/lamport_timestamp.png}
+      \caption{Example of Lamport Timestamps}
+      \label{fig:lamport_timestamp}
+    \end{figure}
 
   \subsection{Vector Clock}
 

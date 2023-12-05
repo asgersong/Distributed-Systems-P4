@@ -41,6 +41,28 @@ def test_message_ordering():
 
 def test_efficiency():
     start_time = time.time()
-    # Perform a series of operations
+    
+    # Define the number of processes and the number of messages to be sent
+    num_processes = 5
+    num_messages = 10
+
+    # Create and connect processes
+    processes = [LamportProcess(i) for i in range(num_processes)]
+    for process in processes:
+        process.connect_processes(processes)
+
+    # Simulate sending messages between processes
+    for _ in range(num_messages):
+        sender = processes[_ % num_processes]
+        receiver_id = (_ + 1) % num_processes
+        sender.send_msg(receiver_id, f"Message {_}")
+
+    # Check for logical clock updates
+    for process in processes:
+        assert process.logical_clock > 0, "Logical clock didn't update correctly"
+
     end_time = time.time()
-    assert end_time - start_time < some_threshold, "Operations should complete within reasonable time"
+    
+    # Define a threshold based on observed typical performance
+    expected_threshold = 1.0  # Adjust this based on your observations and requirements
+    assert end_time - start_time < expected_threshold, "Operations should complete within reasonable time"

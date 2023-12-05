@@ -1,13 +1,6 @@
 # Fdb version 3
-["bibtex main"] 1701736641 "main.aux" "main.bbl" "main" 1701736642
-  "/usr/local/texlive/2022/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "P4.bib" 1701736639 653 e57ac32ba7492574186321802a3eee7f ""
-  "main.aux" 1701736642 2169 291a89d36a6782b376ae13c966add7cb "pdflatex"
-  (generated)
-  "main.bbl"
-  "main.blg"
-["pdflatex"] 1701736641 "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" "main.pdf" "main" 1701736642
-  "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" 1701733841 1369 861ce201ab8958ed99e49ef74a58dfa4 ""
+["pdflatex"] 1701806087 "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" "main.pdf" "main" 1701806087
+  "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" 1701806086 6087 44989ba328a5f262ab0d38bd375f2057 ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -25,12 +18,6 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -172,11 +159,9 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "Titlepage.tex" 1701733632 1288 207e703010ab4bf0c6a879ab6cd8f6ac ""
   "img/aarhus-university.png" 1696221866 4800 6bcd15a3235d800d5b83a50b1ec2478e ""
-  "main.aux" 1701736642 2169 291a89d36a6782b376ae13c966add7cb "pdflatex"
-  "main.bbl" 1701736641 1498 560b4e2de1c5d3d04be148917ee4ef1a "bibtex main"
-  "main.out" 1701736642 1630 2594faf4bd2f880f54110f67712f48a3 "pdflatex"
-  "main.tex" 1701733841 1369 861ce201ab8958ed99e49ef74a58dfa4 ""
-  "main.toc" 1701736642 889 b522e91bcb8cb6a7d0aee34a5d59a96e "pdflatex"
+  "img/lamport_timestamp.png" 1701806043 239049 9f130ba8bdddae8ffc54d7afb5427a23 ""
+  "main.aux" 1701806087 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1701806086 6087 44989ba328a5f262ab0d38bd375f2057 ""
   (generated)
   "main.aux"
   "main.log"
