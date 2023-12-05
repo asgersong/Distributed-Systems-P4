@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1701733634 "main.aux" "main.bbl" "main" 1701733637
+["bibtex main"] 1701736641 "main.aux" "main.bbl" "main" 1701736642
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "P4.bib" 1701627895 649 e008dd0b415c473b009744afa2a392f9 ""
-  "main.aux" 1701733636 1785 5f5b0f87bf4efc1f50c4456a20d6e3bf "pdflatex"
+  "P4.bib" 1701736639 653 e57ac32ba7492574186321802a3eee7f ""
+  "main.aux" 1701736642 2169 291a89d36a6782b376ae13c966add7cb "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1701733635 "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" "main.pdf" "main" 1701733637
-  "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" 1701733632 1257 572f7701e4bd2edd3a98c50583ec0ed8 ""
+["pdflatex"] 1701736641 "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" "main.pdf" "main" 1701736642
+  "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" 1701733841 1369 861ce201ab8958ed99e49ef74a58dfa4 ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -172,11 +172,11 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "Titlepage.tex" 1701733632 1288 207e703010ab4bf0c6a879ab6cd8f6ac ""
   "img/aarhus-university.png" 1696221866 4800 6bcd15a3235d800d5b83a50b1ec2478e ""
-  "main.aux" 1701733636 1785 5f5b0f87bf4efc1f50c4456a20d6e3bf "pdflatex"
-  "main.bbl" 1701733634 1495 4f4274685d3b9fff8d621dee776c71a1 "bibtex main"
-  "main.out" 1701733636 1132 11a1325dcb8172d63e1dbaa7a57c940f "pdflatex"
-  "main.tex" 1701733632 1257 572f7701e4bd2edd3a98c50583ec0ed8 ""
-  "main.toc" 1701733636 629 88dcbaa9ba3b1640a9b19195b1275b21 "pdflatex"
+  "main.aux" 1701736642 2169 291a89d36a6782b376ae13c966add7cb "pdflatex"
+  "main.bbl" 1701736641 1498 560b4e2de1c5d3d04be148917ee4ef1a "bibtex main"
+  "main.out" 1701736642 1630 2594faf4bd2f880f54110f67712f48a3 "pdflatex"
+  "main.tex" 1701733841 1369 861ce201ab8958ed99e49ef74a58dfa4 ""
+  "main.toc" 1701736642 889 b522e91bcb8cb6a7d0aee34a5d59a96e "pdflatex"
   (generated)
   "main.aux"
   "main.log"

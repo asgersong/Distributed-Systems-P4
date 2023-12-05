@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  5 DEC 2023 00:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  5 DEC 2023 01:37
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -657,7 +657,7 @@ LaTeX Info: Redefining \nameref on input line 31.
 \openout6 = `main.out'.
 
  (./Titlepage.tex
-<img/aarhus-university.png, id=39, 903.375pt x 501.875pt>
+<img/aarhus-university.png, id=51, 903.375pt x 501.875pt>
 File: img/aarhus-university.png Graphic file (type png)
 <use img/aarhus-university.png>
 Package pdftex.def Info: img/aarhus-university.png  used on input line 36.
@@ -665,15 +665,15 @@ Package pdftex.def Info: img/aarhus-university.png  used on input line 36.
  [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./img/aarhus-university.png>]) (./main.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 4.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ))
@@ -684,24 +684,24 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.50 \newpage
+l.55 \newpage
               [1] (./main.bbl) [2] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 11A1325DCB8172D63E1DBAA7A57C940F;1132.
+(rerunfilecheck)             Checksum: 2594FAF4BD2F880F54110F67712F48A3;1630.
  ) 
 Here is how much of TeX's memory you used:
- 23338 strings out of 478268
- 443947 string characters out of 5846348
- 754078 words of memory out of 5000000
- 41133 multiletter control sequences out of 15000+600000
+ 23344 strings out of 478268
+ 444039 string characters out of 5846348
+ 756083 words of memory out of 5000000
+ 41136 multiletter control sequences out of 15000+600000
  474222 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,5n,104p,520b,372s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (3 pages, 96938 bytes).
+Output written on main.pdf (3 pages, 97689 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 102 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

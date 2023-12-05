@@ -21,9 +21,9 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{molina:1982}
-H.~Garcia-Molina, ``Elections in a distributed computing system,''
-  \emph{Transactions on Computing Systems C-31}, 1982.
+\bibitem{Lamport:1978}
+L.~Lamport, ``Time, clocks, and the ordering of events in a distributed
+  system,'' \emph{Communications of the ACM}, 1978.
 
 \bibitem{DistributedSystems:ch8}
 M.~van Steen and A.~S. Tanenbaum, \emph{Distributed Systems}, 4th~ed.\hskip 1em
