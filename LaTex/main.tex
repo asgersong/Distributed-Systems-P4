@@ -57,13 +57,23 @@
     \end{equation}
     where $C(e)$ denotes the timestamp of event $e$, and $C(e')$ denotes the timestamp of the event that happens-before $e$. This equation is used to update the timestamp of an event when it occurs. The timestamp of an event is initialized to zero, and is incremented by one when an event occurs. The timestamp of an event is also included in messages sent between processes, and is used to update the timestamp of the receiving process.
 
-    Consider the following example, where three processes, $P_1$, $P_2$ and $P_3$, communicate with each other.
-    \begin{figure}
+    Consider the following example, where three processes, $P_1$, $P_2$ and $P_3$, communicate with each other depcited in figure \ref{fig:lamport_timestamp}. The processes run on different machines, and each process has its own logical clock. The clocks run at different rates. $P_1$ is incremented by $2$ units, $5$ units in process $P_2$, and $10$ units in process $P_3$, respectively.
+    \begin{figure}[h!]
       \centering
-      \includegraphics[width=0.5\textwidth]{img/lamport_timestamp.png}
-      \caption{Example of Lamport Timestamps}
+      \includegraphics[width=0.6\textwidth]{img/lamport_timestamp.png}
+      \caption{(a) Three processes, each with its own (logical) clock. The clocks run at different rates. (b) Lamport's algorithm synchronizes the clocks.}
       \label{fig:lamport_timestamp}
     \end{figure}
+
+    The first example in figure \ref{fig:lamport_timestamp} shows the clocks of the three processes. Consider message $m_3$ which leaves $P_2$ at $80$ and arrives at $P_2$ at $40$. Similarly, $m_4$ from $P_2$ to $P_1$ leaves at $50$ and arrives at $22$. These values are clearly impossible in a real system, as the clocks are not synchronized. This is where Lamport Timestamps come into play.
+    The second example shows the clocks after the Lamport Timestamp algorithm has been applied. The algorithm follows the happens-before relation to synchronize the clocks. Since $m_3$ left at $80$, it must arrive at $81$ or later. To ensure this, each message carries the sending time according to its sender's clock.
+
+    To implement the Lamport Timestamp algorithm, each process maintains a local counter $C_i$ which are updated according to the following steps\cite{Raynal-Singhal:1996}:
+    \begin{enumerate}
+      \item When a process $P_i$ sends a message, it increments its counter $C_i$ by one, and attaches the new value to the message.
+      \item When a process $P_i$ receives a message, it sets its counter $C_i$ to the maximum of its current value and the value in the received message, and increments its counter by one.
+      \item When a process $P_i$ experiences an internal event, it increments its counter $C_i$ by one.
+    \end{enumerate}
 
   \subsection{Vector Clock}
 
