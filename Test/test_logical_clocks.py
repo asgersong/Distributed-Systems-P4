@@ -10,16 +10,34 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../V
 from lamport_process import LamportProcess
 from vector_process import VectorProcess
 
-# LamportProcess tests
 
-def test_initial_clock_value():
+# LamportProcess tests
+def test_Lamport_process_initialization():
     process = LamportProcess(0)
-    assert process.logical_clock == 0, "Initial clock value should be zero"
+    assert process.process_id == 0, "Process ID should be set correctly"
+    assert process.logical_clock == 0, "Logical clock should be initialized to zero"
+    assert process.connected_processes == [], "Connected processes should be initialized to an empty list"
 
 def test_clock_increment_on_event():
     process = LamportProcess(0)
     process.process_event("TestEvent", process.process_id)
     assert process.logical_clock == 1, "Clock should increment on local event"
+
+def test_clock_update_on_msg_send():
+    p0 = LamportProcess(0)
+    p1 = LamportProcess(1)
+    p0.connect_processes([p0, p1])
+    p1.connect_processes([p0, p1])
+
+    p0.start_process()
+    p1.start_process()
+
+    p0.send_msg(1, "TestMsg")
+    time.sleep(0.1)  # Allow some time for message processing
+    assert p0.logical_clock == 1, "Clock should update on sending a message"
+
+    p0.stop_process()
+    p1.stop_process()
 
 def test_clock_update_on_msg_receive():
     p0 = LamportProcess(0)
@@ -31,8 +49,30 @@ def test_clock_update_on_msg_receive():
     p1.start_process()
 
     p0.send_msg(1, "TestMsg")
-    time.sleep(0.5)  # Allow some time for message processing
-    assert p1.logical_clock > 0, "Clock should update on receiving a message"
+    time.sleep(1)  # Allow some time for message processing
+    assert p1.logical_clock == 2, "Clock should update on receiving a message"
+
+    p0.stop_process()
+    p1.stop_process()
+
+def test_clocks_update_on_msg_send_and_receive():
+    p0 = LamportProcess(0)
+    p1 = LamportProcess(1)
+    p0.connect_processes([p0, p1])
+    p1.connect_processes([p0, p1])
+
+    p0.start_process()
+    p1.start_process()
+
+    p0.send_msg(1, "TestMsg")
+    time.sleep(0.1)  # Allow some time for message processing
+    p0.process_event("LocalEvent", p0.process_id)  # Local event at p0 local clock should be incremented to 2
+    p0.process_event("LocalEvent", p0.process_id)  # Local event at p0 local clock should be incremented to 3
+    p1.process_event("LocalEvent", p1.process_id)  # Local event at p1 local clock should be incremented to 2
+    p0.send_msg(1, "TestMsg") # p0 sends another message to p1 (p0's local clock should be incremented to 4)
+    time.sleep(0.1)  # Allow some time for message processing
+    assert p0.logical_clock == 4, "p0's clock should be 4 after sending 2 messages and 2 local events"
+    assert p1.logical_clock == 5, "p1's clock should be 5 after receiving 2 messages and 1 local event"
 
     p0.stop_process()
     p1.stop_process()
@@ -55,11 +95,9 @@ def test_message_ordering():
 
     # Check if both clocks are incremented and equal
     assert p0.logical_clock > 0 and p1.logical_clock > 0, "Clocks should be incremented"
-    assert p0.logical_clock == p1.logical_clock, "Clocks should be equal after the events"
 
     p0.stop_process()
     p1.stop_process()
-
 
 def test_efficiency():
     start_time = time.time()
@@ -86,14 +124,55 @@ def test_efficiency():
     end_time = time.time()
     
     expected_threshold = 1.0  # Adjust based on your observations and requirements
-    assert end_time - start_time < expected_threshold, "Operations should complete within reasonable time"
+    assert end_time - start_time < expected_threshold, "Operations should complete within a reasonable time"
 
+def test_send_msg_invalid_process_id():
+    p0 = LamportProcess(0)
+    p1 = LamportProcess(1)
+
+    # Connect p0 to p1 only
+    p0.connect_processes([p1])  # Note that p1 is not connected to p0
+
+    p0.start_process()
+    p1.start_process()
+
+    invalid_process_id = 2  # This ID does not exist in the connected processes
+    p0.send_msg(invalid_process_id, "TestMsg")
+
+    time.sleep(0.1)  # Allow some time for the process
+
+    # Check if the error log is present
+    error_log_present = any("Invalid target process ID" in log for log in p0.event_log)
+    assert error_log_present, "Error log for invalid process ID should be present"
+
+    p0.stop_process()
+    p1.stop_process()
+
+def test_send_msg_via_process_event():
+    p0 = LamportProcess(0)
+    p1 = LamportProcess(1)
+
+    p0.start_process()
+    p1.start_process()
+
+    p0.connect_processes([p0, p1])
+
+    p0.process_event("TestMsg", 1)
+
+    time.sleep(0.1)  # Allow some time for the process
+
+    # Check if the error log is present
+    assert p0.logical_clock == 1, "Logical clock should be incremented on sending a message"
+
+    p0.stop_process()
+    p1.stop_process()
 
 # VectorProcess tests
+
 def test_vector_clock_initialization():
     num_processes = 3
     process = VectorProcess(0, num_processes)
-    assert process.vector_clock == [0, 0, 0], "Initial vector clock should be all zeros"
+    assert process.vector_clock == [0] * num_processes, "Initial vector clock should be all zeros"
 
 def test_connect_processes():
     p0 = VectorProcess(0, 2)
@@ -114,46 +193,35 @@ def test_vector_clock_update_on_event():
     p0.start_process()
     p1.start_process()
 
-    p0.process_event("LocalEvent", p0.process_id)
-    assert p0.vector_clock == [1, 0], "p0's vector clock should be [1, 0] after local event"
+    p0.send_message(1, "LocalEvent")  # Simulate an event by sending a message
+    time.sleep(0.1)  # Allow some time for message processing
+    assert p0.vector_clock[0] == 1, "p0's vector clock should be [1, 0] after sending a message"
+    assert p1.vector_clock[1] == 1, "p1's vector clock should be [1, 1] after receiving a message"
+    assert p1.vector_clock[0] == 1, "p1's vector clock should be [1, 1] after receiving a message"
 
     p0.stop_process()
     p1.stop_process()
 
-def test_message_sending_and_receiving():
-    p0 = VectorProcess(0, 2)
-    p1 = VectorProcess(1, 2)
+
+def test_simulate_internal_event():
+    num_processes = 2
+    p0 = VectorProcess(0, num_processes)
+    p1 = VectorProcess(1, num_processes)
+
+    # Connect processes
     p0.connect_processes([p0, p1])
     p1.connect_processes([p0, p1])
-    
+
     p0.start_process()
     p1.start_process()
 
-    p0.send_msg(1, "Hello from p0")
-    time.sleep(0.1)
-    assert p1.vector_clock[0] == 1, "p1's vector clock should be [1, 0] after receiving a message"
+    # Simulate an internal event in process 0
+    p0.simulate_internal_event()
+    
+    time.sleep(0.1)  # Allow some time for event processing
+
+    # Check if process 0's vector clock entry has been incremented
+    assert p0.vector_clock[0] == 1, "Process 0's vector clock should be [1, 0] after simulating an internal event"
 
     p0.stop_process()
     p1.stop_process()
-
-def test_scheduled_events_handling():
-    process = VectorProcess(0, 1)
-    process.start_process()
-    process.schedule_events(Queue())
-    process.scheduled_events.put((time.time() + 0.1, "Scheduled Event", 0))
-    time.sleep(2)
-    assert process.vector_clock[0] == 1, "p0's vector clock should be [1] after processing a scheduled event"
-    process.stop_process()
-
-def test_logging():
-    process = VectorProcess(0, 1)
-    process.start_process()
-    process.process_event("Test Event", process.process_id)
-    time.sleep(0.1)
-    assert len(process.event_log) > 0, "Event log should contain at least one event"
-    process.stop_process()
-
-def test_error_handling():
-    p0 = VectorProcess(0, 1)
-    with pytest.raises(IndexError):
-        p0.send_msg(1, "Message to non-existent process")

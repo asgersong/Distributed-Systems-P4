@@ -4,26 +4,36 @@ import time
 
 class LamportProcess:
     def __init__(self, process_id):
-        """Initialize the Lamport process with a unique ID."""
+        """
+        Initialize a Lamport process with a unique ID.
+
+        Args:
+            process_id (int): Unique identifier for the process.
+        """
         self.process_id = process_id
         self.logical_clock = 0  # Logical clock for this process
         self.active = Event()  # Event flag to control the process's activity
-        self.msg_queue = Queue()  # Queue for incoming msgs
+        self.msg_queue = Queue()  # Queue for incoming messages
         self.scheduled_events = Queue()  # Queue for scheduled events
         self.process_thread = Thread(target=self.process_activities, daemon=True)  # Thread for the process
-        self.connected_processes = []  # List of connected processes for msg passing
+        self.connected_processes = []  # List of connected processes for message passing
         self.init_time = time.time()  # Record the start time of the process
         self.event_log = []  # Log for events
 
     def connect_processes(self, other_processes):
-        """Connect this process to other processes in the system."""
+        """
+        Connect this process to other processes in the system.
+
+        Args:
+            other_processes (list): List of other LamportProcess instances to connect to.
+        """
         self.connected_processes = other_processes
 
     def process_activities(self):
-        """Main loop to process events and msgs."""
+        """Main loop to process events and messages."""
         while not self.active.is_set():
             self.process_scheduled_events()
-            self.process_incoming_msgs()
+            self.process_incoming_messages()
 
     def process_scheduled_events(self):
         """Process events based on their scheduled time."""
@@ -33,13 +43,13 @@ class LamportProcess:
                 self.scheduled_events.get()  # Remove the event from the queue
                 self.process_event(payload, target_proc_id)
 
-    def process_incoming_msgs(self):
-        """Process any incoming msgs from other processes."""
+    def process_incoming_messages(self):
+        """Process any incoming messages from other processes."""
         try:
             msg_payload, msg_time = self.msg_queue.get(timeout=0.1)
             self.process_msg(msg_payload, msg_time)
         except Empty:
-            # No msg received, continue loop
+            # No message received, continue loop
             pass
 
     def current_time(self):
@@ -47,25 +57,31 @@ class LamportProcess:
         return time.time() - self.init_time
 
     def process_msg(self, payload, timestamp):
-        """Process a received msg, updating the logical clock."""
-        self.logical_clock = max(timestamp + 1, self.logical_clock + 1)
+        """
+        Process a received message, updating the logical clock.
+
+        Args:
+            payload: The message payload.
+            timestamp: The timestamp of the received message.
+        """
+        self.logical_clock = max(timestamp, self.logical_clock) + 1
         self.log_event("Received", payload)
 
     def queue_msg(self, payload, clock):
-        """Queue a msg for sending to another process."""
+        """Queue a message for sending to another process."""
         self.msg_queue.put((payload, clock))
 
     def send_msg(self, target_proc_id, payload):
-        """Send a msg to a target process."""
+        """Send a message to a target process."""
         if 0 <= target_proc_id < len(self.connected_processes):
+            self.logical_clock += 1  # Increment clock before sending
             self.connected_processes[target_proc_id].queue_msg(payload, self.logical_clock)
-            self.logical_clock += 1
             self.log_event("Sent", payload)
         else:
-            print(f"Invalid process ID: {target_proc_id}")
+            self.log_event("Error", f"Invalid target process ID: {target_proc_id}")
 
     def process_event(self, payload, target_proc_id):
-        """Process an event, either local or sending a msg."""
+        """Process an event, either local or sending a message."""
         if payload == "STOP":
             # If payload is STOP, halt the process
             self.active.set()
@@ -76,7 +92,7 @@ class LamportProcess:
             self.logical_clock += 1
             self.log_event("Local", payload)
         else:
-            # Send a msg to another process
+            # Send a message to another process
             self.send_msg(target_proc_id, payload)
 
     def log_event(self, event_type, event_payload):
