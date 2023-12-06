@@ -37,4 +37,11 @@ F.~Mattern, ``Efficient algorithms for distributed snapshots and global virtual
 M.~van Steen and A.~S. Tanenbaum, \emph{Distributed Systems}, 4th~ed.\hskip 1em
   plus 0.5em minus 0.4em\relax Maarten van Steen, 2023, ch.~5.
 
+\bibitem{Timestamps}
+\BIBentryALTinterwordspacing
+S.~Kumar, ``Lamport timestamps,'' 2020, last accessed 6 december 2023.
+  [Online]. Available:
+  \url{https://medium.com/big-data-processing/lamport-timestamps-833a077e1a86}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
