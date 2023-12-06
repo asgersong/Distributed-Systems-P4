@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{send\PYGZus{}msg}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{target\PYGZus{}proc\PYGZus{}id}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{):}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Send a message to a target process.\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{if} \PYG{l+m+mi}{0} \PYG{o}{\PYGZlt{}=} \PYG{n}{target\PYGZus{}proc\PYGZus{}id} \PYG{o}{\PYGZlt{}} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{connected\PYGZus{}processes}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{logical\PYGZus{}clock} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{connected\PYGZus{}processes}\PYG{p}{[}\PYG{n}{target\PYGZus{}proc\PYGZus{}id}\PYG{p}{]}\PYG{o}{.}\PYG{n}{queue\PYGZus{}msg}\PYG{p}{(}\PYG{n}{payload}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{logical\PYGZus{}clock}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{log\PYGZus{}event}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Sent\PYGZdq{}}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{log\PYGZus{}event}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Error\PYGZdq{}}\PYG{p}{,} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Invalid target process ID: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{target\PYGZus{}proc\PYGZus{}id}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

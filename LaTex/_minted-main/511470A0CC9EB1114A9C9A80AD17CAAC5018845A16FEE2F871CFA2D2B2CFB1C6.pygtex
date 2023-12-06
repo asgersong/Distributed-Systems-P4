@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{process\PYGZus{}event}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{,} \PYG{n}{target\PYGZus{}proc\PYGZus{}id}\PYG{p}{):}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Process an event, either local or sending a message.\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{if} \PYG{n}{payload} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}STOP\PYGZdq{}}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{active}\PYG{o}{.}\PYG{n}{set}\PYG{p}{()}
+        \PYG{k}{return}
+    \PYG{k}{if} \PYG{n}{target\PYGZus{}proc\PYGZus{}id} \PYG{o}{==} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{process\PYGZus{}id}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{logical\PYGZus{}clock} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{log\PYGZus{}event}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Local\PYGZdq{}}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{send\PYGZus{}msg}\PYG{p}{(}\PYG{n}{target\PYGZus{}proc\PYGZus{}id}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{)}
+\end{Verbatim}

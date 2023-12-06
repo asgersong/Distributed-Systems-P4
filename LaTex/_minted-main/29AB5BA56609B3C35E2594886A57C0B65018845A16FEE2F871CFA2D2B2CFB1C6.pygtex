@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{process\PYGZus{}msg}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{,} \PYG{n}{timestamp}\PYG{p}{):}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Process a received message, updating the logical clock.}
+\PYG{l+s+sd}{    Args:}
+\PYG{l+s+sd}{        payload: The message payload.}
+\PYG{l+s+sd}{        timestamp: The timestamp of the received message.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{logical\PYGZus{}clock} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{timestamp}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{logical\PYGZus{}clock}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{1}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{log\PYGZus{}event}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Received\PYGZdq{}}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{)}
+\end{Verbatim}

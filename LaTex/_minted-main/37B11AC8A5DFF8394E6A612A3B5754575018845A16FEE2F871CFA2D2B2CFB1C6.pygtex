@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{simulate\PYGZus{}internal\PYGZus{}event}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Simulate an internal event for the current process.\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{vector\PYGZus{}clock}\PYG{p}{[}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{process\PYGZus{}id}\PYG{p}{]} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{log\PYGZus{}event}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Internal Event\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Internal event occurred\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

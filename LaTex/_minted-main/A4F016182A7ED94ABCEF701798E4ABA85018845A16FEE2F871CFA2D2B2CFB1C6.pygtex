@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{send\PYGZus{}message}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{target\PYGZus{}id}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{):}
+    \PYG{k}{if} \PYG{n}{target\PYGZus{}id} \PYG{o}{\PYGZlt{}} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{connected\PYGZus{}processes}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{vector\PYGZus{}clock}\PYG{p}{[}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{process\PYGZus{}id}\PYG{p}{]} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{connected\PYGZus{}processes}\PYG{p}{[}\PYG{n}{target\PYGZus{}id}\PYG{p}{]}\PYG{o}{.}\PYG{n}{enqueue\PYGZus{}message}\PYG{p}{(}\PYG{n}{payload}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{vector\PYGZus{}clock}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{())}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{log\PYGZus{}event}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Sent\PYGZdq{}}\PYG{p}{,} \PYG{n}{payload}\PYG{p}{)}
+\end{Verbatim}
