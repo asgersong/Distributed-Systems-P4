@@ -37,12 +37,8 @@
 \section{Introduction}
     In the expansive field of distributed systems, the current project embarks on an insightful journey to explore and elucidate the fundamental concepts of logical clock algorithms, specifically focusing on Lamport Timestamps and Vector Clocks. This project aims to design, implement, test, and compare these algorithms, emphasizing their ability to order events in a distributed system with accuracy and efficiency. 
 
-    The core challenge of this project lies in the intricate analysis and optimization of two pivotal logical clock algorithms - Lamport Timestamps and Vector Clocks. Our focus is twofold: firstly, to ensure the correctness of event ordering, and secondly, to optimize the overhead in terms of time, space, and message complexities. The journey encompasses a thorough process that begins with a detailed understanding of the algorithms, followed by a robust implementation in Python. The project progresses with rigorous testing and evaluation, comparing these algorithms against each other and benchmarking them against the state of the art.
-
-    Through meticulous research, development, and analytical scrutiny, this project endeavors to contribute a comprehensive understanding of these algorithms. It seeks to provide clear insights into their operational mechanics, effectiveness in distributed environments, and the potential areas where they can be applied or further developed.
-
-
-\section{Methods and Materials}
+   \section{Methods and Materials}
+  This section discusses the core concepts of Lamport Timestamps and Vector Clocks, their theoretical underpinnings, and the practical considerations in their implementation.
 \subsection{Lamport Timestamp}
   The concept of Lamport Timestamps, introduced by Leslie Lamport\cite{Lamport:1978}, serves as a cornerstone in the realm of distributed systems for establishing a partial ordering of events. At the heart of this algorithm lies a simple yet powerful idea: using logical clocks — counters that are not tied to physical time — to sequence events across different processes in a distributed environment.
 
@@ -51,14 +47,15 @@
   \subsubsection{Happens-before}
     To establish synchronization among logical clocks in distributed systems, Leslie Lamport introduced the fundamental concept of happens-before, a crucial relation in Lamport Timestamps. This relation, denoted by $a \rightarrow b$, defines a chronological order between two events, stating that event $a$ happens before event $b$. This relation is transitive, meaning that \(\forall a,b,c\) if $a \rightarrow b$ and $b \rightarrow c$, then $a \rightarrow c$. The happens-before relation is also irreflexive, meaning that \(\forall a\): $a \nrightarrow a$, and antisymmetric, meaning that \(\forall a,b\): $a \neq b$, if \(a \rightarrow b\) then $b \nrightarrow a$.
 
-    The happens-before relation is used to establish a partial ordering of events in a distributed system. The ordering is established by comparing the timestamps of two events. If $a \rightarrow b$, then $C(a) < C(b)$, where $C(a)$ denotes the timestamp of event $a$. However, it is important to note that the converse, if $C(a) < C(b)$, then $a \nrightarrow b$, is not necessarily true. This is because the happens-before relation is a partial ordering, meaning that it is not necessarily true that $a \rightarrow b$ or $b \rightarrow a$. When it is the cast that $a \nrightarrow b$ and $b \nrightarrow a$, the two events are said to be concurrent.
+    The happens-before relation is used to establish a partial ordering of events in a distributed system. The ordering is established by comparing the timestamps of two events. If $a \rightarrow b$, then $C(a) < C(b)$, where $C(a)$ denotes the timestamp of event $a$. However, it is important to note that the converse, if $C(a) < C(b)$, then $a \nrightarrow b$, is not necessarily true. This is because the happens-before relation is a partial ordering, which means it does not determine the ordering of all pairs of events. When it is the case that $a \nrightarrow b$ and $b \nrightarrow a$, the two events are said to be concurrent.
 
   \subsubsection{Lamport Timestamp Algorithm}\label{sec:lamport_timestamp_algorithm}
-    Considering the happens-before relation, Lamport Timestamps can be defined as follows: \textit{The timestamp of an event is the maximum of its own timestamp and the timestamps of all events that happen-before it, plus one.} This definition can be expressed as the following equation:
-    \begin{equation}
-      C(e) = max(C(e), C(e')) + 1
-    \end{equation}
-    where $C(e)$ denotes the timestamp of event $e$, and $C(e')$ denotes the timestamp of the event that happens-before $e$. This equation is used to update the timestamp of an event when it occurs. The timestamp of an event is initialized to zero, and is incremented by one when an event occurs. The timestamp of an event is also included in messages sent between processes, and is used to update the timestamp of the receiving process.
+    Considering the happens-before relation, Lamport Timestamps can be defined as follows: \textit{The timestamp of an event is the maximum of its own timestamp and the timestamps of all events that happen-before it, plus one.} 
+    %This definition can be expressed as the following equation:
+    %\begin{equation}
+    %  C(e) = max(C(e), C(e')) + 1
+    %\end{equation}
+    %where $C(e)$ denotes the timestamp of event $e$, and $C(e')$ denotes the timestamp of the event that happens-before $e$. This equation is used to update the timestamp of an event when it occurs. The timestamp of an event is initialized to zero, and is incremented by one when an event occurs. The timestamp of an event is also included in messages sent between processes, and is used to update the timestamp of the receiving process.
 
     Consider the following example, where three processes, $P_1$, $P_2$ and $P_3$, communicate with each other depcited in figure \ref{fig:lamport_timestamp}. The processes run on different machines, and each process has its own logical clock. The clocks run at different rates. $P_1$ is incremented by $2$ units, $5$ units in process $P_2$, and $10$ units in process $P_3$, respectively.
     \begin{figure}[h!]
@@ -79,10 +76,10 @@
     \end{enumerate}
 
   \subsubsection{Overhead}
-    The Lamport Timestamp algorithm incurs a minimal overhead in terms of time, space, and message complexities. The time complexity is $O(1)$, as the timestamp of an event is updated in constant time. The space complexity is $O(n)$, where $n$ is the number of processes in the distributed system, as each process maintains a single counter. The message complexity is also $O(n)$, as each message must carry the timestamp of the sending process.
+  The Lamport Timestamp algorithm incurs a minimal overhead in terms of time, space, and message complexities. The time complexity is $O(1)$, as the timestamp of an event is updated in constant time. The space complexity is also $O(1)$, as each process maintains a single counter, independent of the number of processes in the system. The message complexity is $O(1)$ as well, because only a single timestamp value is attached to each message, regardless of the total number of messages or processes involved.
 
   \subsection{Vector Clocks}
-    Vector Clocks extend the concept of Lamport Timestamps, providing a refined approach to event ordering in distributed systems. Unlike Lamport Timestamps, which offer a partial ordering, Vector Clocks allow for a comprehensive understanding of causal relationships between events.
+    Vector Clocks extend the concept of Lamport Timestamps, providing a refined approach to event ordering in distributed systems. Unlike Lamport Timestamps, which offer a partial ordering, Vector Clocks allow for a comprehensive understanding of total ordering between events.
 
     \subsubsection{Principles and Operation}\label{sec:vector_clocks}
     In Vector Clocks, each process maintains an array of counters, one for each process, to track events across the distributed system. These arrays, known as Vector Clocks, are updated based on specific rules for different event types:
@@ -92,19 +89,19 @@
     \item \textbf{Message Reception}: Update each counter to the maximum of the current value and the received value, then increment the process's own counter.
     \end{enumerate}
     
-    \subsubsection{Causal Ordering}
-    Vector Clocks enable determining causal relationships between events. An event $A$ is causally before event $B$ if $A$'s Vector Clock values are less than or equal to $B$'s, with at least one value being strictly less. Concurrent events are identified when neither event causally precedes the other.
+    %\subsubsection{Causal Ordering}
+    %Vector Clocks enable determining causal relationships between events. An event $A$ is causally before event $B$ if $A$'s Vector Clock values are less than or equal to $B$'s, with at least one value being strictly less. Concurrent events are identified when neither event causally precedes the other.
 
     \subsubsection{Overhead}
-    Vector Clocks incur a higher overhead than Lamport Timestamps, as each process must maintain an array of counters, one for each process in the distributed system. This results in a space complexity of $O(n^2)$, where $n$ is the number of processes in the system. The message complexity is also higher, as each message must carry the entire Vector Clock of the sending process. However, the time complexity is the same as Lamport Timestamps, as the Vector Clocks are updated in the same manner.
-
+    Vector Clocks incur a higher overhead compared to Lamport Timestamps, primarily due to the requirement for each process to maintain an array (vector) of counters—one for each process in the distributed system. This leads to a space complexity of $O(n)$ per process, where $n$ is the number of processes in the system. The message complexity is also higher, as each message must carry the entire Vector Clock of the sending process, amounting to $O(n)$ complexity per message. However, the time complexity for updating the Vector Clocks upon events is similar to that of Lamport Timestamps, as updates are performed in a consistent and efficient manner.
+    
   \subsection{Development and Environment Tools}
     The implementation of the Lamport Timestamp algorithm and vector clocks was done using the following tools and technologies:
     \begin{itemize}
-        \item \textbf{Git}: Git is a distributed version control system for tracking changes in source code during software development. It was used to manage the source code of the fortune cookie service and the Bully algorithm implementation.
-        \item \textbf{GitHub}: GitHub is a web-based hosting service for version control using Git. It was used to host the source code of the fortune cookie service and the Bully algorithm implementation.
-        \item \textbf{Visual Studio Code}: Visual Studio Code is a source-code editor. It was used to write the source code of the fortune cookie service and the Bully algorithm implementation.
-        \item \textbf{Pytest}: Pytest is a testing framework for Python. It was used to write and run unit tests for the Bully algorithm implementation.
+        \item \textbf{Git}: Git is a distributed version control system for tracking changes in source code during software development. It was used to manage the source code of the Lamport Timestamp and Vector Clock implementations
+        \item \textbf{GitHub}: GitHub is a web-based hosting service for version control using Git. It was used to host the source code of the project.
+        \item \textbf{Visual Studio Code}: Visual Studio Code is a source-code editor. It was used to write the source code of Lamport Timestamps and Vector Clocks.
+        \item \textbf{Pytest}: Pytest is a testing framework for Python. It was used to write and run unit tests for both the Lamport Timestamp and Vector Clock implementations.
       \end{itemize}
 
 \section{Experiments, Results and Discussion}
@@ -235,7 +232,13 @@ def simulate_internal_event(self):
       This subsection outlines the specific scenarios and methodologies applied to test the Lamport Timestamp and Vector Clock implementations. The aim was to rigorously evaluate their correctness with respect to the theoretical underpinnings of the algorithms.
       
       \subsubsection{Testing Framework}
-      The testing was conducted using the Python-based Pytest framework, which provided a robust and flexible environment for creating and executing a comprehensive set of test cases. Each logical clock algorithm was subjected to a series of tests designed to prove its correctness. All test cases are included in the \texttt{test\_logical\_clocks.py}-file. Figure (missing) illustrates some of the test cases implemented.
+      The testing was conducted using the Python-based Pytest framework, which provided a robust and flexible environment for creating and executing a comprehensive set of test cases. Each logical clock algorithm was subjected to a series of tests designed to prove its correctness. All test cases are included in the \texttt{test\_logical\_clocks.py}-file. Figure \ref{fig:test_cases} illustrates some of the test cases implemented.
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\textwidth]{img/test_cases.png}
+        \caption{(a) Simple test case for the Lamport Timestamp algorithm. By the end of the test, the logical clock of \texttt{p0} and \texttt{p0} should be $4$ and 5, respectively. (b) Simple test case for the Vector Clock algorithm. By the end of the test, the logical clock of \texttt{p0} and \texttt{p1} should be $[1,0]$ and $[1,1]$, respectively.}
+        \label{fig:test_cases}
+      \end{figure}
       
       For both implementations, tests were designed to validate the correctness of logical clock increments during internal events, message sending, and message receiving. Key scenarios included:
       \begin{itemize}
@@ -246,30 +249,41 @@ def simulate_internal_event(self):
       
    
   \subsection{Results}
-
-    Present the results of your experiments in a clear and structured manner. This could include tables, graphs, or charts that effectively convey the data collected during testing.
+      Pytest gives a simple overview of the test results, including the number of tests run, the number of tests passed, and the number of tests failed. The test results for the Lamport Timestamp and Vector Clock implementations are shown in Figure \ref{fig:pytest_results}.
+      
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\textwidth]{img/test_results.png}
+        \caption{Pytest results}
+        \label{fig:pytest_results}
+      \end{figure}
 
   \subsection{Discussion}
+  This discussion section delves into interpreting the test results of the Lamport Timestamp and Vector Clock implementations, considering their practical applications, efficiency, and potential areas for further research.
 
-    Analyze the results, discussing how they meet the objectives set out at the beginning of the project. Highlight any interesting or unexpected findings, and how they impact the understanding of Lamport Timestamps and Vector Clocks in distributed systems. Discuss any patterns or trends observed in the data, and what they signify about the algorithms' performance and reliability.
-
-  \subsection{Limitations of the Study}
-
-    Acknowledge any limitations encountered in your experimental setup or methodology, and how these might affect the interpretation of the results.
-
-  \subsection{Implications of Findings}
-
-    Discuss the broader implications of your findings, both for theoretical research and practical applications in distributed systems.
-
-\section{Conclusion and perspectives}
-    \subsection{Conclusion}
+  \subsubsection{Correctness}
+  The results in figure \ref*{fig:pytest_results} show that all tests passed for both implementations, with an acceptable code coverage percentage, indicating that the implementations are correct. This is expected, as the implementations follow the theoretical underpinnings of the algorithms. Note that even without a $100\%$ code coverage, the implementations can still be considered correct, as the untested code is either trivial or not part of the core functionality of the algorithms e.g. exeption handling. The correct functioning of these algorithms is crucial in distributed systems, where precise event ordering and synchronization are fundamental.
     
-    \subsection{Lessons Learned}
-      Partial ordering vs total ordering
+\subsubsection{Limitations of the Study}
+This study, while informative, has certain limitations. Primarily, it relies on simulations, which may not fully replicate the complexities of real-world distributed systems, where factors like network latency and hardware differences play a significant role. Moreover, scalability tests were not conducted. The implementations worked well for a small number of processes, but their efficiency in larger systems remains untested. The study also didn't explore advanced optimizations or hybrid approaches, such as sparse vector clocks\cite{sparse}, that could potentially improve efficiency and applicability in specific contexts. Lastly, the focus was mainly on the correctness of the algorithms, with limited evaluation metrics. Future studies could benefit from a broader range of metrics, including fault tolerance and real-time processing capabilities, for a more comprehensive assessment of these algorithms in diverse scenarios.
+\section{Conclusion and perspectives}
+  This section concludes the project by summarizing the key findings and discussing potential areas for future work.
+  \subsection{Conclusion}
+  This project's exploration of Lamport Timestamps and Vector Clocks in distributed systems has yielded critical insights into the mechanisms of these logical clock algorithms. The successful implementation and testing of both algorithms have demonstrated their fundamental correctness and practical applicability in a simulated environment. This study underscores the relevance of these algorithms in ensuring accurate event ordering and synchronization in distributed systems, which is crucial for maintaining consistency and coordination across different system nodes.
 
-    \subsection{Future Work}
+  \textbf{Theoretical Foundation}: A deep understanding of the theoretical aspects of any algorithm is crucial before moving to implementation. This foundational knowledge guides effective and accurate coding practices.
+  \textbf{Testing and Validation}: Rigorous testing is essential to validate the correctness of an implementation, especially in systems where accuracy is critical.
+  \textbf{Adaptability and Scalability}: While the algorithms performed well in controlled test scenarios, real-world applications require adaptability to various and often unpredictable environmental factors.
+  \subsection{Future Work}
+  For future work, several paths can be explored:
 
-\newpage
+  \textbf{Real-World Testing}: Implementing these algorithms in real-world scenarios to assess their performance and robustness under various network conditions and system loads.
+  \textbf{Scalability Assessment}: Testing the algorithms in larger distributed systems to understand their scalability and identify potential optimization opportunities.
+  \textbf{Hybrid Approaches}: Investigating hybrid or optimized versions of these algorithms, such as Sparse Vector Clocks, to enhance efficiency and applicability in specific use cases.
+  \textbf{Advanced Metrics Evaluation}: Employing a broader range of metrics, including fault tolerance and response to network partitions, to evaluate these algorithms comprehensively.
+  This project's outcomes contribute to the ongoing discourse in distributed systems, particularly in the domain of logical clocks, and pave the way for future innovations and enhancements in this field.
+
+    
     \bibliographystyle{IEEEtran} % We choose the "plain" reference style
     \nocite{*}
     \bibliography{P4} % Entries are in the refs.bib file

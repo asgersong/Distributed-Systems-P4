@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1701886119 "main.aux" "main.bbl" "main" 1701886122
+["bibtex main"] 1701891020 "main.aux" "main.bbl" "main" 1701891219
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "P4.bib" 1701808977 898 4824668c79644ac922d3ca5bafec8b22 ""
-  "main.aux" 1701886122 7401 df2149e9b8f2c14a3cfca01a5a25ed2d "pdflatex"
+  "P4.bib" 1701890350 829 b5214b006108adb09f79fdc8d79b0595 ""
+  "main.aux" 1701891218 8251 25962d42710ece05f363dc6405a0b4c7 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1701886120 "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" "main.pdf" "main" 1701886122
-  "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" 1701886115 20779 c4ad4f7f5335ccf63dbae37316557a7b ""
+["pdflatex"] 1701891217 "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" "main.pdf" "main" 1701891219
+  "/Users/asgerpoulsen/Desktop/Distribuerede systemer/Distributed-Systems-P4/LaTex/main.tex" 1701891217 24251 d52d982db28e835569c1dce863eb279b ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -43,7 +43,6 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb" 1248133631 24287 6b803fa9eb1ddff9112e00519b09dd9e ""
@@ -202,11 +201,13 @@
   "img/aarhus-university.png" 1696221866 4800 6bcd15a3235d800d5b83a50b1ec2478e ""
   "img/class_diagram.png" 1701884158 19985 4d6b34395bac1cea4c16cd6ecafcad34 ""
   "img/lamport_timestamp.png" 1701806208 39793 68414a05b727f127ba7e2647595e7cef ""
-  "main.aux" 1701886122 7401 df2149e9b8f2c14a3cfca01a5a25ed2d "pdflatex"
-  "main.bbl" 1701886120 1642 f219245c53a90fe07690e38dfb3e6528 "bibtex main"
-  "main.out" 1701886122 3795 3afe05a350086e0a51652f5f63be20ce "pdflatex"
-  "main.tex" 1701886115 20779 c4ad4f7f5335ccf63dbae37316557a7b ""
-  "main.toc" 1701886122 2146 ddcd31bd010fca34acc937c8cdb3e9e4 "pdflatex"
+  "img/test_cases.png" 1701887613 15855 101d25f9371f9ed5778ede91ecc8b4ce ""
+  "img/test_results.png" 1701887935 286850 3c44a54862513a0860af3efa4ae80e57 ""
+  "main.aux" 1701891218 8251 25962d42710ece05f363dc6405a0b4c7 "pdflatex"
+  "main.bbl" 1701891020 1478 a65f2d44a6994a2a6b54959fd6a21a3f "bibtex main"
+  "main.out" 1701891218 3462 015849fa66ca9d6cfe0155517aa6be01 "pdflatex"
+  "main.tex" 1701891217 24251 d52d982db28e835569c1dce863eb279b ""
+  "main.toc" 1701891218 1981 e1859ce9816e6324d77888149ddd53cb "pdflatex"
   (generated)
   "main.aux"
   "main.log"

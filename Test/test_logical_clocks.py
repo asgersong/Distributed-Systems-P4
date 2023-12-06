@@ -66,6 +66,7 @@ def test_clocks_update_on_msg_send_and_receive():
 
     p0.send_msg(1, "TestMsg")
     time.sleep(0.1)  # Allow some time for message processing
+    assert p1.logical_clock == 2, "p1's clock should be 2 after receiving a message"
     p0.process_event("LocalEvent", p0.process_id)  # Local event at p0 local clock should be incremented to 2
     p0.process_event("LocalEvent", p0.process_id)  # Local event at p0 local clock should be incremented to 3
     p1.process_event("LocalEvent", p1.process_id)  # Local event at p1 local clock should be incremented to 2

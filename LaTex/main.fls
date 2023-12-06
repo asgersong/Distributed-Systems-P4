@@ -1137,6 +1137,16 @@ INPUT ./_minted-main/37B11AC8A5DFF8394E6A612A3B5754575018845A16FEE2F871CFA2D2B2C
 INPUT _minted-main/37B11AC8A5DFF8394E6A612A3B5754575018845A16FEE2F871CFA2D2B2CFB1C6.pygtex
 INPUT ./_minted-main/37B11AC8A5DFF8394E6A612A3B5754575018845A16FEE2F871CFA2D2B2CFB1C6.pygtex
 INPUT _minted-main/37B11AC8A5DFF8394E6A612A3B5754575018845A16FEE2F871CFA2D2B2CFB1C6.pygtex
+INPUT ./img/test_cases.png
+INPUT ./img/test_cases.png
+INPUT img/test_cases.png
+INPUT ./img/test_cases.png
+INPUT ./img/test_cases.png
+INPUT ./img/test_results.png
+INPUT ./img/test_results.png
+INPUT img/test_results.png
+INPUT ./img/test_results.png
+INPUT ./img/test_results.png
 INPUT ./main.bbl
 INPUT main.bbl
 INPUT ./main.bbl
@@ -1159,7 +1169,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb

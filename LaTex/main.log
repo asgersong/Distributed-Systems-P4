@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  6 DEC 2023 19:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  6 DEC 2023 20:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -682,7 +682,7 @@ LaTeX Info: Redefining \nameref on input line 34.
 \openout6 = `main.out'.
 
  (./Titlepage.tex
-<img/aarhus-university.png, id=107, 903.375pt x 501.875pt>
+<img/aarhus-university.png, id=99, 903.375pt x 501.875pt>
 File: img/aarhus-university.png Graphic file (type png)
 <use img/aarhus-university.png>
 Package pdftex.def Info: img/aarhus-university.png  used on input line 36.
@@ -709,24 +709,20 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.45 \section
-             {Methods and Materials} [1]
-<img/lamport_timestamp.png, id=150, 1922.18124pt x 947.54pt>
+l.46 
+      [1]
+<img/lamport_timestamp.png, id=141, 1922.18124pt x 947.54pt>
 File: img/lamport_timestamp.png Graphic file (type png)
 <use img/lamport_timestamp.png>
-Package pdftex.def Info: img/lamport_timestamp.png  used on input line 66.
+Package pdftex.def Info: img/lamport_timestamp.png  used on input line 63.
 (pdftex.def)             Requested size: 260.17464pt x 128.24492pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2] [3 <./img/lamport_timestamp.png>]
-<img/class_diagram.png, id=178, 1947.275pt x 833.1125pt>
+ [2 <./img/lamport_timestamp.png>] [3]
+<img/class_diagram.png, id=169, 1947.275pt x 833.1125pt>
 File: img/class_diagram.png Graphic file (type png)
 <use img/class_diagram.png>
-Package pdftex.def Info: img/class_diagram.png  used on input line 118.
+Package pdftex.def Info: img/class_diagram.png  used on input line 115.
 (pdftex.def)             Requested size: 433.62pt x 185.50996pt.
- [4]
+ [4 <./img/class_diagram.png>]
 \openout3 = `main.pyg'.
 
  (./_minted-main/default.pygstyle) (./_minted-main/29AB5BA56609B3C35E2594886A57C0B65018845A16FEE2F871CFA2D2B2CFB1C6.pygtex
@@ -738,41 +734,50 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <7> not available
  (./_minted-main/8E769DC4805163FF95E512FD7D49733C5018845A16FEE2F871CFA2D2B2CFB1C6.pygtex)
 \openout3 = `main.pyg'.
 
- (./_minted-main/511470A0CC9EB1114A9C9A80AD17CAAC5018845A16FEE2F871CFA2D2B2CFB1C6.pygtex)
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ (./_minted-main/511470A0CC9EB1114A9C9A80AD17CAAC5018845A16FEE2F871CFA2D2B2CFB1C6.pygtex) [5]
 \openout3 = `main.pyg'.
 
-(./_minted-main/5481B8272D16DCA16447D45E8E6535935018845A16FEE2F871CFA2D2B2CFB1C6.pygtex)
+ (./_minted-main/5481B8272D16DCA16447D45E8E6535935018845A16FEE2F871CFA2D2B2CFB1C6.pygtex)
 \openout3 = `main.pyg'.
 
  (./_minted-main/A4F016182A7ED94ABCEF701798E4ABA85018845A16FEE2F871CFA2D2B2CFB1C6.pygtex)
 \openout3 = `main.pyg'.
 
- (./_minted-main/37B11AC8A5DFF8394E6A612A3B5754575018845A16FEE2F871CFA2D2B2CFB1C6.pygtex) [5 <./img/class_diagram.png>]
+ (./_minted-main/37B11AC8A5DFF8394E6A612A3B5754575018845A16FEE2F871CFA2D2B2CFB1C6.pygtex)
+<img/test_cases.png, id=188, 1426.32875pt x 622.325pt>
+File: img/test_cases.png Graphic file (type png)
+<use img/test_cases.png>
+Package pdftex.def Info: img/test_cases.png  used on input line 238.
+(pdftex.def)             Requested size: 433.62pt x 189.18686pt.
+ [6]
+<img/test_results.png, id=196, 1115.16624pt x 255.95625pt>
+File: img/test_results.png Graphic file (type png)
+<use img/test_results.png>
+Package pdftex.def Info: img/test_results.png  used on input line 256.
+(pdftex.def)             Requested size: 433.62pt x 99.5257pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7] [8] (./main.bbl) [9] (./main.aux)
+[7 <./img/test_cases.png>] [8 <./img/test_results.png>] (./main.bbl) [9] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3AFE05A350086E0A51652F5F63BE20CE;3795.
+(rerunfilecheck)             Checksum: 015849FA66CA9D6CFE0155517AA6BE01;3462.
 runsystem(rm main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24974 strings out of 478268
- 477213 string characters out of 5846348
- 786672 words of memory out of 5000000
- 42694 multiletter control sequences out of 15000+600000
+ 24987 strings out of 478268
+ 477509 string characters out of 5846348
+ 784045 words of memory out of 5000000
+ 42706 multiletter control sequences out of 15000+600000
  475360 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,104p,829b,823s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (10 pages, 295870 bytes).
+ 99i,9n,104p,1046b,823s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (10 pages, 433294 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 256 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 228 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 304 PDF objects out of 1000 (max. 8388607)
+ 245 compressed objects within 3 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

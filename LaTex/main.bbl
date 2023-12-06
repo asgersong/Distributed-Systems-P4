@@ -29,15 +29,12 @@ L.~Lamport, ``Time, clocks, and the ordering of events in a distributed
 M.~Raynal and M.~Singhal, ``Logical time: Capturing causality in distributed
   systems,'' \emph{Computer}, 1996.
 
+\bibitem{sparse}
+F.~Mattern, ``Efficient algorithms for distributed snapshots and global virtual
+  time approximation,'' 01 2004.
+
 \bibitem{DistributedSystems:ch5}
 M.~van Steen and A.~S. Tanenbaum, \emph{Distributed Systems}, 4th~ed.\hskip 1em
   plus 0.5em minus 0.4em\relax Maarten van Steen, 2023, ch.~5.
-
-\bibitem{Headless-service:2023}
-\BIBentryALTinterwordspacing
-Kubernetes, ``Kubernetes documentation / service,'' 2023, last accessed 3
-  December 2023. [Online]. Available:
-  \url{https://kubernetes.io/docs/concepts/services-networking/service/#headless-services.}
-\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
