@@ -198,7 +198,7 @@ def test_vector_clock_update_on_event():
     time.sleep(0.1)  # Allow some time for message processing
     assert p0.vector_clock[0] == 1, "p0's vector clock should be [1, 0] after sending a message"
     assert p1.vector_clock[1] == 1, "p1's vector clock should be [1, 1] after receiving a message"
-    assert p1.vector_clock[0] == 1, "p1's vector clock should be [1, 1] after receiving a message"
+    assert p1.vector_clock[0] == 1, "p0's vector clock should be [1, 1] after receiving a message"
 
     p0.stop_process()
     p1.stop_process()
